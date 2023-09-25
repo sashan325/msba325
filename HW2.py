@@ -24,11 +24,11 @@ st.map(filtered_data)
 
 
 st.subheader('Countries Life Expectancy 🌐')
-if st.checkbox('Show dataframe'):
- countries = pd.read_csv('https://raw.githubusercontent.com/sashan325/msba325/main/countries.csv', encoding='latin1')
- chart_data=pd.DataFrame(countries)
- st.write('The following table represents different indicators for certain countries in the world:')
- chart_data
+
+countries = pd.read_csv('https://raw.githubusercontent.com/sashan325/msba325/main/countries.csv', encoding='latin1')
+chart_data=pd.DataFrame(countries)
+st.write('The following table represents different indicators for certain countries in the world:')
+chart_data
 
 st.write('The following Box Plot Chart shows the Life Expectancy per Continent:')
    
