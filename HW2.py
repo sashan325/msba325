@@ -32,7 +32,24 @@ if st.checkbox('Show dataframe'):
 
 st.write('The following Box Plot Chart shows the Life Expectancy per Continent:')
    
-fig=px.box(countries , x='Continent' , y='Life Expectancy' , title = 'Life Expectancy per Continent')
-st.plotly_chart(fig)
+# Assuming you've already loaded your countries dataframe
 
- 
+# Get unique continents for the dropdown
+continents = ['All'] + list(countries['Continent'].unique())
+
+# Create a dropdown in Streamlit and store the selected value in the variable 'selected_continent'
+selected_continent = st.selectbox('Select a continent:', options=continents)
+
+# Check the selected value. If it's "All", don't filter. Otherwise, filter the dataframe.
+if selected_continent == 'All':
+    data_to_plot = countries
+else:
+    data_to_plot = countries[countries['Continent'] == selected_continent]
+
+# Draw boxplot for the relevant data
+if selected_continent == 'All':
+    fig = px.box(data_to_plot, x='Continent', y='Life Expectancy', title=f'Life Expectancy per Continent')
+else:
+    fig = px.box(data_to_plot, x='Continent', y='Life Expectancy', title=f'Life Expectancy in {selected_continent}')
+
+st.plotly_chart(fig)
