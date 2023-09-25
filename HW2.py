@@ -22,7 +22,7 @@ filtered_data = passport_power[passport_power['2023 Rank'] == Rank]
 st.write(f'Data for selected rank ({Rank}):')
 st.map(filtered_data)
 
-
+st.subheader('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 st.subheader('Countries Life Expectancy 🌐')
 
 countries = pd.read_csv('https://raw.githubusercontent.com/sashan325/msba325/main/countries.csv', encoding='latin1')
